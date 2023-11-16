@@ -1,0 +1,68 @@
+<html>
+<head>
+    <link rel="stylesheet" href="head_tail.css">
+</head>
+<body>
+    <h1 style="margin-left: 41%;color: rgb(134, 69, 69)">Heads and Tails</h1>
+    <!-- <a href="home_page.html">go to main page</a> -->
+<form>
+<input id="one" style="border-radius: 20px; font-size: 16px; padding: 7px; border: none;" type="text" placeholder="enter H or T">
+<input id="two" type="submit" value="add me"></input>
+</form>
+<img src="https://media.tenor.com/rzZdErm-YGEAAAAi/hand-flip.gif" alt="" style="float: right; width: 150px; height: 150px; margin-right: 250px;" >
+<script>
+
+console.log(document.forms[0]);
+let a=[]
+let divmain;
+let divv;
+let main;
+document.forms[0].addEventListener("submit",function(e) {
+  
+            e.preventDefault();
+            console.log(e);   
+        console.log(e.target[0].value)
+        let value= e.target[0].value
+    
+    
+if(value=="H" || value=="T") {
+    if(value!=a[a.length-1]) {
+        console.log(a[a.length-1])
+        console.log("newly defined")
+         divmain=document.createElement("div")
+        divmain.style.border= "1px solid #ccc";
+        divmain.style.float="left"
+        divmain.style.backgroundColor="#dd8a8a"
+        divv=document.createElement("div")
+        main=document.createElement("ul")
+        let childs=document.createElement("li")
+        childs.style.listStyleType="none"
+        childs.innerText=value
+        main.appendChild(childs)
+        divv.appendChild(main)
+        divmain.appendChild(divv)
+        document.body.appendChild(divmain)
+        a.push(value)
+        e.target[0].value=""
+    }
+    else {
+        console.log("Already defined")
+        // let main=document.createElement("ul")
+        let childs=document.createElement("li")
+        childs.style.listStyleType="none"
+        childs.innerText=value
+        // main.appendChild(childs)
+        main.appendChild(childs)
+        divv.appendChild(main)
+        divmain.appendChild(divv)
+        document.body.appendChild(divmain)
+        a.push(value)
+        e.target[0].value=""
+    }
+}
+
+        } )
+    
+</script>
+</body>
+</html>
